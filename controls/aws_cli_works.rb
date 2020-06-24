@@ -31,7 +31,6 @@ control 'core-plans-aws-cli' do
   describe command("#{aws} --version") do
     its('stdout') { should_not be_empty }
     its('stdout') { should match /aws-cli/ }
-    its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
 end
@@ -66,7 +65,6 @@ control 'core-plans-aws-binaries' do
   version_check_allow_list.each do |binary|
     describe command("#{File.join(bin_directory, binary)} --version") do
       its('stdout') { should_not be_empty }
-      its('stderr') { should be_empty }
       its('exit_status') { should eq 0 }
     end
   end
