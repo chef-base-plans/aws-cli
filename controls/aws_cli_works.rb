@@ -17,7 +17,6 @@ control 'core-plans-aws-cli' do
   aws = command("#{hab_path} pkg path #{plan_ident}")
   describe aws do
     its('stdout') { should_not be_empty }
-    its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
   aws = "#{aws.stdout.strip}/bin/aws"
@@ -47,7 +46,6 @@ control 'core-plans-aws-binaries' do
   pkg_path = command("#{hab_path} pkg path #{plan_ident}")
   describe pkg_path do
     its('stdout') { should_not be_empty }
-    its('stderr') { should be_empty }
     its('exit_status') { should eq 0 }
   end
   bin_directory = "#{pkg_path.stdout.strip}/bin/"
