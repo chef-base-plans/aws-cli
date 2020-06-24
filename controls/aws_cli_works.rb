@@ -13,8 +13,8 @@ control 'core-plans-aws-cli' do
   We first check that the AWS executable is present and then
   run the AWS CLI `--version` method to verify it is working.
   '
-  #aws = command("#{hab_path} pkg path #{plan_ident}")
-  aws = command("hab pkg path #{plan_ident}")
+  
+  aws = command("#{hab_path} pkg path #{plan_ident}")
   describe aws do
     its('stdout') { should_not be_empty }
     its('stderr') { should be_empty }
@@ -45,8 +45,7 @@ control 'core-plans-aws-binaries' do
   run the binaries to check their version to verify they are working.
   '
 
-  #pkg_path = command("#{hab_path} pkg path #{plan_ident}")
-  pkg_path = command("hab pkg path #{plan_ident}")
+  pkg_path = command("#{hab_path} pkg path #{plan_ident}")
   describe pkg_path do
     its('stdout') { should_not be_empty }
     its('stderr') { should be_empty }
