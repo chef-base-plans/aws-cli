@@ -2,7 +2,6 @@ title 'Tests to confirm AWS CLI works as expected'
 
 plan_name = input('plan_name', value: 'aws-cli')
 plan_ident = "#{ENV['HAB_ORIGIN']}/#{plan_name}"
-hab_path = input('hab_path', value: '/tmp/hab')
 version_check_allow_list = input('version_check_allow_list')
 version_check_block_list = input('version_check_block_list')
 
@@ -14,7 +13,7 @@ control 'core-plans-aws-cli' do
   run the AWS CLI `--version` method to verify it is working.
   '
   
-  aws = command("#{hab_path} pkg path #{plan_ident}")
+  aws = command("hab pkg path #{plan_ident}")
   describe aws do
     its('stdout') { should_not be_empty }
     its('exit_status') { should eq 0 }
@@ -43,7 +42,7 @@ control 'core-plans-aws-binaries' do
   run the binaries to check their version to verify they are working.
   '
 
-  pkg_path = command("#{hab_path} pkg path #{plan_ident}")
+  pkg_path = command("hab pkg path #{plan_ident}")
   describe pkg_path do
     its('stdout') { should_not be_empty }
     its('exit_status') { should eq 0 }
