@@ -31,10 +31,8 @@ version_check_block_list :
   - "pyrsa-keygen"
   - "pyrsa-sign"
   - "pyrsa-priv2pub"
-  - "pyrsa-decrypt-bigfile"
   - "aws_bash_completer"
   - "aws_completer"
-  - "pyrsa-encrypt-bigfile"
 
 block_list : 
   - "activate"
