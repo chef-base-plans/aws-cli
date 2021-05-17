@@ -18,10 +18,6 @@ pkg_deps=(
 )
 pkg_bin_dirs=(bin)
 
-do_before() {
-  update_pkg_version
-}
-
 do_prepare() {
   python -m venv "$pkg_prefix"
   # shellcheck source=/dev/null
